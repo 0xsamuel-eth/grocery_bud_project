@@ -1,2 +1,3 @@
-# grocery_project
+# Grocery Bud Project
+
 A grocery project
