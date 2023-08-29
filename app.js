@@ -108,7 +108,9 @@ function editItem() {
     editElement = e.currentTarget.parentElement.previousElementSibling;
     // set form value
     grocery.value = editElement.innerHTML;
-
+    editFlag = true;
+    editID = element.dataset.id;
+    submitBtn.textContent = "edit";
 }
 // set back to default
 function setBackToDefault() {
