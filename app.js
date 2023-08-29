@@ -81,6 +81,8 @@ function clearItems() {
     }
     comtainer.classList.remove('show-container');
     displayAlert('empty list', 'danger');
+    setBackToDefault();
+    // localStorage.removeItem('list');
 }
 // set back to default
 function setBackToDefault() {
