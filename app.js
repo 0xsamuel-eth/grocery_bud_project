@@ -91,7 +91,7 @@ function clearItems() {
     comtainer.classList.remove('show-container');
     displayAlert('empty list', 'danger');
     setBackToDefault();
-    // localStorage.removeItem('list');
+    localStorage.removeItem('list');
 }
 // delete function
 function deleteItem(e) {
@@ -137,9 +137,23 @@ function addToLocalStorage(id, value) {
 function removeFromLocalStorage(id) {
     let items = getLocalStorage();
 
-    items = items.filter(function(item){})
+    items = items.filter(function(item){
+        if(item.id !== id) {
+            return item;
+        }
+    });
+    localStorage.setItem('list',JSON.stringify(items));
 }
-function editLocalStorage(id,value) {}
+function editLocalStorage(id,value) {
+    let items = getLocalStorage();
+    items = items.map(function(item) {
+        if(item.id === id) {
+            item.value = value;
+        }
+        return item;
+    });
+    localStorage.setItem('list',JSON.stringify(items));
+}
 function getLocalStorage() {
     return localStorage.getItem("list")
         ? JSON.parse(localStorage.getItem("list"))
@@ -148,7 +162,8 @@ function getLocalStorage() {
 // localStorage API
 // setItem
 // getItem
-// remveItem
+// removeItem
+
 // save as strings
 // localStorage.setItem('orange',JSON.stringify(["item","item2"]));
 // const oranges = JSON.parse(localStorage.getItem('orange'));
