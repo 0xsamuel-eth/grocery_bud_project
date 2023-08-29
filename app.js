@@ -135,7 +135,9 @@ function addToLocalStorage(id, value) {
     // console.log("added to local storage");
 }
 function removeFromLocalStorage(id) {
+    let items = getLocalStorage();
 
+    items = items.filter(function(item){})
 }
 function editLocalStorage(id,value) {}
 function getLocalStorage() {
